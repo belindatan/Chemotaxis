@@ -18,20 +18,19 @@ Bacteria [] colony;
 //Bat one; //declare bacteria variables here   
  public void setup()   
  {     
-    colony=new Bacteria[100];
+    colony=new Bacteria[99];
  	size(500,500);//initialize bacteria variables here 
  	for(int i = 0; i < colony.length; i++) 
 	{
-	colony[i]=new Bacteria (350,350);
+	colony[i]=new Bacteria (250,250);
 	}
  }   
  public void draw()   
  {  
- 	//x=(int)(Math.random())*255;
- 	//y=(int)(Math.random())*255;  
+ 	
  	background (255);
  	
- 	frameRate(5);
+ 	frameRate(1);
 
 
 
@@ -43,17 +42,22 @@ Bacteria [] colony;
  		}//move and show the bacteria   
  }  
  class Bacteria    
- {  int myx, myy;
+ {  int myx, myy,x,y,c1,c2,c3;
 
  	Bacteria(int x, int y)
  	{	myx=x;
  		myy=y;
+	//x=(int)(Math.random()*20);
+ 	//y=(int)(Math.random()*20);  
+ 	c1=(int)(Math.random()*340);
+ 	c2=(int)(Math.random()*340);
+ 	c3=(int)(Math.random()*340);
  	}  
  	public void move()
 {	
 	
-	//myx=(int)(Math.random()*42)-1;
-	//myy=(int)(Math.random()*42)-1;
+//	myx=(int)(Math.random()*4)-1;
+//	myy=(int)(Math.random()*4)-1;
 
 	int direction=(int)(Math.random()*4);
 		if (direction==0)
@@ -75,14 +79,18 @@ Bacteria [] colony;
 }
 
 public void show()
-{	
-	fill ((int)(Math.random()*240),(int)(Math.random()*240),(int)(Math.random()*240));
+{	noStroke();
+	fill (c1,c2,c3,20);
 	
 
-	ellipse (myx,myy,20,20);
+	ellipse (myx,myy,30,30);
+
 }
  	//lots of java!   
  }     	
+
+
+
   static public void main(String[] passedArgs) {
     String[] appletArgs = new String[] { "Chemotaxis" };
     if (passedArgs != null) {
